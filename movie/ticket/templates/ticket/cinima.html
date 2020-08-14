@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Cinima List
+  </title>
+  <style>
+    @media (min-width: 1000px) {
+      body {
+        background-color: lightyellow;
+      }
+    }
+
+    @media (max-width: 999px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hello, {{ user.username }}</h1>
+  <ul>
+    <li>Currently logged in as: {{ user.username }}</li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+  {% for cinima in cinimas %}
+  <h3>
+    <ol id="cinimaname">Cinima Name: {{cinima.name}} </ol>
+  </h3>
+  {% endfor %}
+  <h3>Movie List</h3>
+  {% for movie in movies %}
+  <form action="{% url 'addtocart' movie.id %}" method="post">
+    {% csrf_token %}
+    <h5>
+      <ol>Movie Name: {{movie.name}} </ol>
+      <ol>Price: $<a id="price">{{movie.price}} </a>
+        <ol>
+        </ol>
+    </h5>
+    <ol><button id="addtocart" class="btn btn-primary shop-item-button" type="submit">Add to Cart</button></ol>
+  </form>
+  {% endfor %}
+</body>
+
+</html>

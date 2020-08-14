@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    login
+  </title>
+  <style>
+    @media (min-width: 1000px) {
+      body {
+        background-color: lightyellow;
+      }
+    }
+
+    @media (max-width: 999px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Login</h1>
+  {% if message %}
+  <div>
+    {{ message }}
+  </div>
+  {% endif %}
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <input name="username" type="text" />
+    <input name="password" type="password" />
+    <input type="submit" value="Login" />
+  </form>
+</body>
+
+</html>

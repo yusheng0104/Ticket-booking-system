@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Checkout
+  </title>
+  <style>
+    @media (min-width: 1000px) {
+      body {
+        background-color: lightyellow;
+      }
+    }
+
+    @media (max-width: 999px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hello, {{ user.username }}</h1>
+  <ul>
+    <li>Currently logged in as: {{ user.username }}</li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+  {% for tol in total %}
+  <div>
+    Your Total is: ${{tol}}
+  </div>
+  <br>
+  {% endfor %}
+  <hr>
+  <div>{{message}}</div>
+  <a href="{% url 'movielist' %}">Continue Shopping</a>
+</body>
+
+</html>
