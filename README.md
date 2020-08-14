@@ -1,4 +1,4 @@
-# final-project
+# Movie ticket booking system
 In the project, I designed an app for movie ticket.
 The users could register, and login the app to select a cinema and purchase movie tickets.(Pardon my typo on cinema, I run out of time to fix it)
 A coupon could be applied, and credit card will be charged and an email will be sent to the user after pressing pay button.
